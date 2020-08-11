@@ -1,12 +1,13 @@
-
 from tensorflow.keras import backend as K
 import tensorflow as tf
-from config import get_batch_size, get_nslices, get_img_size, get_patch_size
-nslices = get_nslices()
-batch_size = get_batch_size()
-img_rows, img_cols = get_img_size()
+from config import Configs
+cf = Configs()
+nslices = cf.nslices
+batch_size = cf.batch_size
+img_rows = cf.img_rows
+img_cols = cf.img_cols
 smooth = K.epsilon()
-patch_size = get_patch_size()
+patch_size = cf.patch_size
 
 def dice_coef(y_true, y_pred):
     y_true_f = K.flatten(y_true)
