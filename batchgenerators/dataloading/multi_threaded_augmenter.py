@@ -29,7 +29,12 @@ from queue import Empty, Full
 import traceback
 from time import sleep, time
 from threadpoolctl import threadpool_limits
-from config import patch_size, batch_size
+
+from config import default_configs
+cf = default_configs()
+patch_size = cf.patch_size
+batch_size = cf.batch_size
+
 from datetime import datetime
 
 def producer(queue, data_loader, transform, thread_id, seed, abort_event, purpose):

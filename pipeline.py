@@ -7,9 +7,11 @@ Created on Sat Feb 22 18:49:09 2020
 
 
 import numpy as np
-from config import get_th_les_pix, get_nslices
-th_les_pix = get_th_les_pix()
-nslices = get_nslices()
+from config import default_configs
+cf = default_configs()
+
+th_les_pix = cf.th_les_pix
+nslices = cf.nslices
 
 def exclude_lesions(masks):
   for ind in range(int(masks.shape[0]/nslices)):

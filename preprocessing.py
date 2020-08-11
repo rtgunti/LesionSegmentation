@@ -27,19 +27,34 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 from glob import glob
-from config import get_img_size
-from config import data_path
-img_rows, img_cols = get_img_size()
+
+from config import default_configs
+cf = default_configs()
+
+data_path = cf.data_path
+
+img_rows = cf.img_rows
+img_cols = cf.img_cols
+
+seg_path = cf.seg_path
+project_path = cf.project_path
+raw_data_path = cf.raw_data_path
+raw_seg_path = cf.raw_seg_path
+
+resampled_data_path = cf.resampled_data_path
+resampled_seg_path = cf.resampled_seg_path
+
+liver_cropped_data_path = cf.liver_cropped_data_path
+liver_cropped_seg_path = cf.liver_cropped_seg_path
+
+zNorm_data_path = cf.zNorm_data_path
+zNorm_seg_path = cf.zNorm_seg_path
+
+
 from eda import get_img_mask_names
-from config import data_path, seg_path, project_path, raw_data_path, raw_seg_path
-from config import resampled_data_path, resampled_seg_path
-from config import liver_cropped_data_path, liver_cropped_seg_path
-from config import zNorm_data_path, zNorm_seg_path
+
 from utility_functions import stat, trim_data, show_imgs
 img_names, mask_names = get_img_mask_names()
-
-
-
 
 
 def preprocess_resample():

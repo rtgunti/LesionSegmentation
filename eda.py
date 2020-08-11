@@ -1,6 +1,18 @@
 import os
-from config import get_train_val_ind, raw_data_path, raw_seg_path, project_path
-from config import data_path, seg_path, generic_path
+
+from config import default_configs
+cf = default_configs()
+patch_size = cf.patch_size
+batch_size = cf.batch_size
+
+
+raw_data_path = cf.raw_data_path
+raw_seg_path = cf.raw_seg_path
+project_path = cf.project_path
+
+data_path = cf.data_path
+seg_path = cf.seg_path
+generic_path = cf.generic_path
 import nibabel
 import numpy as np
 from glob import glob

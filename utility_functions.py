@@ -29,13 +29,16 @@ from random import randint
 from random import random
 import nibabel
 
-from config import get_img_size, get_nslices, get_rft_rfv, get_project_path, patch_size
-from config import raw_data_path, raw_seg_path
+from config import default_configs
+cf = default_configs()
 
-img_rows, img_cols = get_img_size()
-nslices = get_nslices()
-rft, rfv = get_rft_rfv()
-project_path = get_project_path()
+
+image_rows = cf.img_rows
+image_cols = cf.img_cols
+nslices = cf.nslices
+rft = cf.rft
+rfv = cf.rfv
+project_path = cf.project_path
   
 def get_overlay(imgs, masks, preds):
     for ind in range(preds.shape[-1]):

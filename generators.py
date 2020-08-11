@@ -19,12 +19,49 @@ from sklearn.utils import shuffle
 
 from utility_functions import get_reservoir_sample, get_random_patch
 
-from config import get_img_size, get_nslices, get_batch_size, get_patch_size, get_train_val_ind, get_max_shape
-from config import data_path, seg_path, preprocessed_folder, project_path, mul_thread_flag, batch_size
-img_rows, img_cols = get_img_size()
-nslices = get_nslices()
-patch_size = get_patch_size()
-train_ind, val_ind = get_train_val_ind()
+
+from config import default_configs
+cf = default_configs()
+
+data_path = cf.data_path
+
+img_rows = cf.img_rows
+img_cols = cf.img_cols
+
+seg_path = cf.seg_path
+project_path = cf.project_path
+raw_data_path = cf.raw_data_path
+raw_seg_path = cf.raw_seg_path
+
+resampled_data_path = cf.resampled_data_path
+resampled_seg_path = cf.resampled_seg_path
+
+liver_cropped_data_path = cf.liver_cropped_data_path
+liver_cropped_seg_path = cf.liver_cropped_seg_path
+
+zNorm_data_path = cf.zNorm_data_path
+zNorm_seg_path = cf.zNorm_seg_path
+
+mul_thread_flag = cf.mul_thread_flag
+
+data_path = cf.data_path
+seg_path = cf.seg_path
+preprocessed_folder = cf.preprocessed_folder
+project_path = cf.project_path
+mul_thread_flag = cf.mul_thread_flag
+batch_size = cf.batch_size
+
+get_nslices = cf.nslices
+get_batch_size = cf.batch_size
+
+# max_shape = cf.max_shape
+
+img_rows = cf.img_rows
+img_cols = cf.img_cols
+nslices = cf.nslices
+max_shape = cf.max_shape
+patch_size = cf.patch_size
+train_ind, val_ind = cf.get_train_val_ind()
 
 def get_train_transform(patch_size):
 
@@ -98,7 +135,7 @@ def get_train_val_generators():
     # max_shape = np.max(shapes, 0)
     # print('Max Shape : '+str(max_shape))
     # max_shape = np.max((max_shape, patch_size), 0)
-    max_shape = get_max_shape()
+    max_shape = cf.max_shape
     print("Max Shape : " + str(max_shape))
     # max_shape = patch_size
 

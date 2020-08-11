@@ -8,10 +8,12 @@ IMG_DTYPE = np.float
 SEG_DTYPE = np.uint8
 from skimage.transform import resize
 import pre_pro as pp
-from config import get_img_size, get_data_path, get_seg_path, get_project_path
+from config import default_configs
+cf = default_configs()
 
-image_rows, image_cols = get_img_size()
-project_path = get_project_path()
+image_rows = cf.img_rows
+image_cols = cf.img_cols
+project_path = cf.project_path
 data_path = project_path + 'Dataset/data/'
 seg_path = project_path + 'Dataset/seg/'
 

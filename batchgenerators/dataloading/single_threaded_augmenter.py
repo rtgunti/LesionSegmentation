@@ -20,7 +20,10 @@ from future import standard_library
 standard_library.install_aliases()
 from builtins import object
 import numpy as np
-from config import patch_size, batch_size
+from config import default_configs
+cf = default_configs()
+patch_size = cf.patch_size
+batch_size = cf.batch_size
 
 class SingleThreadedAugmenter(object):
     """

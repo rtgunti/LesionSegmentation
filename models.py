@@ -25,10 +25,15 @@ from tensorflow.keras.layers import Reshape, Permute, Activation, Input, add, mu
 # policy = mixed_precision.Policy('mixed_float16')
 # mixed_precision.set_policy(policy)
 
-from config import get_img_size, get_batch_size, get_patch_size, nfilters, model_depth, dropout_rate
-img_rows, img_cols = get_img_size()
-batch_size = get_batch_size()
-patch_size = get_patch_size()
+from config import default_configs
+cf = default_configs()
+batch_size = cf.batch_size
+patch_size = cf.patch_size
+nfilters = cf.nfilters
+model_depth = cf.model_depth
+dropout_rate = cf.dropout_rate
+img_rows = cf.img_rows
+img_cols = cf.img_cols
 
 # 2DU Net
 def UNet2D():
