@@ -338,15 +338,15 @@ def generator3D_patch(gen):
           item['data'] = zero_mean_unit_variance_normalization(item['data'], per_channel = False)
         # logging.debug('Time for swap and reshape : ' + str(time() - st_timer))
 
-        # # For segmentation
-        # yield(item['data'], item['seg'])
+        # For segmentation
+        yield(item['data'], item['seg'])
 
-        # Prep for detection
-        seg = item['seg']
-        # seg_clf = [len(np.unique(i))-1 for i in seg]
-        seg_clf = [np.max(i) for i in seg]
-        seg_clf = np.array(seg_clf)
-        yield(item['data'], seg_clf)   
+        # # Prep for detection
+        # seg = item['seg']
+        # # seg_clf = [len(np.unique(i))-1 for i in seg]
+        # seg_clf = [np.max(i) for i in seg]
+        # seg_clf = np.array(seg_clf)
+        # yield(item['data'], seg_clf)
 
         # seg_clf = np.zeros((batch_size))
         # for ind in range(batch_size): 
